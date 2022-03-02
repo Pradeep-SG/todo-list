@@ -1,0 +1,42 @@
+<%- include('partials/header'); -%>
+
+<div class="container">
+  <div class="top-div title">
+    <a href="/"><i class="icon fa-solid fa-house-chimney fa-2x"></i></a>
+    <h2 class="content">ToDo List</h2>
+  </div>
+
+  <div class="all-items">
+    <div class="items added-items">
+      <div class="one-item distinct-block">
+        <a name="checkbox" value="" href="/help">></a>
+        <a class="taskTitle" name="checkbox" value="" href="/help">
+          <p class="task-each">How to use This?</p>
+        </a>
+      </div>
+      <% taskList.forEach(task => { %>
+      <div class="one-item distinct-block">
+        <a name="checkbox" value="<%= task._id %>" href="/<%= task.name %>">></a>
+        <a class="taskTitle" name="checkbox" value="<%= task._id %>" href="/<%= task.name %>">
+          <% let taskName = task.name %>
+          <% if(task.name.length > 27) taskName = task.name.substring(0, 27) + "..." %>
+          <p class="task-each"><%= taskName %></p>
+        </a>
+        <form class="" action="/deleteTask" method="post">
+          <button class="trash-btn" type="submit" name="taskId" value="<%= task._id %>"><i class="trash fa-solid fa-trash-can"></i></button>
+        </form>
+      </div>
+      <% }); %>
+    </div>
+    <div class="items add-new">
+      <form class="" action="/addTask" method="post">
+        <input type="text" name="newTask" value="" placeholder="New Task" autocomplete="off">
+        <div class="btn-class">
+          <button class="btn" type="submit" name="button" value="<%=  %>">+</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer"); -%>

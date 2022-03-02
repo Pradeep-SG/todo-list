@@ -1,0 +1,171 @@
+body {
+  background: linear-gradient(20deg, #1572A1 40%, #9AD0EC 40%);
+  min-height: 100vh;
+  font-family: 'Hubballi', 'helvetica';
+}
+
+a {
+  text-decoration: none;
+  color: #1A374D;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.container {
+  text-align: center;
+  width: 400px;
+  margin: auto;
+}
+
+.top-div {
+  background-color: #1572A1;
+  color: #fff;
+  margin: 10px auto 20px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px -5px #000;
+  font-size: 20px;
+}
+
+.top-div .content {
+  padding: 10px 0;
+}
+
+.one-item {
+  padding-left: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.distinct-block, .error-each {
+  border-bottom: 1px solid #DFF6FF;
+}
+
+.trash-btn {
+  border: 0;
+  align-self: stretch;
+  font-size: 20px;
+  padding: 0 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.trash {
+  visibility: hidden;
+  opacity: 0.1;
+}
+
+.trash:hover {
+  opacity: 0.4;
+}
+
+.one-item:last-child, .form-group:last-child {
+  border: 0;
+}
+
+.items {
+  background-color: #FFF;
+  text-align: left;
+  border-radius: 5px;
+  color: #1A374D;
+  box-shadow: 3px 3px 10px -5px #000;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.item-each, .task-each {
+  opacity: 0.9;
+}
+
+.task-each:hover {
+  opacity: 1;
+}
+
+.one-item:hover .trash {
+  visibility: visible;
+}
+
+p {
+  padding-left: 30px;
+}
+
+.taskTitle, .item-each {
+  flex-grow: 1;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+}
+
+.add-new {
+  margin-top: 10px;
+  text-align: right;
+  border: 0;
+}
+
+.add-new form {
+  text-align: center;
+  margin-left: 20px;
+}
+
+input[type="text"] {
+  border: 0;
+  height: 50px;
+  width: 250px;
+  text-align: center;
+  position: relative;
+  bottom: 5px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  font-family: 'Hubballi', 'helvetica';
+  font-size: 20px;
+  font-weight: bolder;
+  box-shadow: inset 0 -3px #1572A1;
+}
+
+::placeholder {
+  font-family: 'Hubballi', 'helvetica';
+  color: grey;
+  opacity: 0.4;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-class {
+  display: inline-block;
+  padding-top: 10px;
+}
+
+.btn {
+  border: 0;
+  background-color: #1572A1;
+  color: #fff;
+  font-size: 30px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #5D8BF4;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+@media (max-device-width: 480px) {
+  .container {
+    width: 90%;
+  }
+}

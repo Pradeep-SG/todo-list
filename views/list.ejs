@@ -1,0 +1,37 @@
+<%- include('partials/header'); -%>
+
+<div class="container">
+  <div class="top-div title">
+    <a href="/"><i class="icon fa-solid fa-house-chimney fa-2x"></i></a>
+    <% let title = listTitle %>
+    <% if(listTitle.length > 21) title = listTitle.substring(0, 21) + "..." %>
+    <h2 class="content"><%= title %></h2>
+  </div>
+  <div class="top-div date">
+    <h2 class="content"><%= today %></h2>
+  </div>
+
+  <div class="all-items">
+    <div class="items added-items">
+      <% itemList.forEach(item => { %>
+      <form class="form-group distinct-block" action="/deleteItem" method="post">
+        <div class="one-item">
+          <input type="checkbox" name="itemId" value="<%= item._id %>" onChange="this.form.submit()">
+          <p class="item-each"><%= item.name %></p>
+        </div>
+        <input type="hidden" name="task" value="<%= listTitle %>">
+      </form>
+      <% }); %>
+    </div>
+    <div class="items add-new">
+      <form class="" action="/addItem" method="post">
+        <input type="text" name="newItem" value="" placeholder="New Item" autocomplete="off">
+        <div class="btn-class">
+          <button class="btn" type="submit" name="button" value="<%= listTitle %>">+</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer"); -%>
