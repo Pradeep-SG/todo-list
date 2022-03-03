@@ -1,6 +1,7 @@
 const express = require("express");
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
+const _ = require("lodash");
 require("dotenv").config();
 
 const app = express();
@@ -85,23 +86,24 @@ app.get("/", (req, res) => {
 });
 
 app.post("/addTask", (req, res) => {
-  const newTask = req.body.newTask;
-
-  Task.findOne({
-    name: newTask
-  }, (err, foundList) => {
-    if (!err) {
-      if (!foundList) {
-        const task = new Task({
-          name: newTask,
-          items: []
-        });
-        task.save();
-        res.redirect("/");
-      } else res.redirect("/");
-    } else console.log(err);
-  });
-
+  const newTask = _.trim(req.body.newTask);
+  if (newTask === "") res.redirect("/");
+  else {
+    Task.findOne({
+      name: newTask
+    }, (err, foundList) => {
+      if (!err) {
+        if (!foundList) {
+          const task = new Task({
+            name: newTask,
+            items: []
+          });
+          task.save();
+          res.redirect("/");
+        } else res.redirect("/");
+      } else console.log(err);
+    });
+  }
 });
 
 app.post("/deleteTask", (req, res) => {
